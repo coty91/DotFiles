@@ -174,7 +174,8 @@ workspace $ws10 gaps outer 0
 
 exec_always --no-startup-id feh --bg-fill $HOME/Pictures/Wallpapers/wallhaven-708677.png
 
-exec --no-startup-id compton -b
+#exec --no-startup-id compton -b
+exec --no-startup-id compton --backend glx --vsync opengl-swc -b
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
