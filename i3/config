@@ -183,12 +183,3 @@ exec --no-startup-id nm-applet
 bindsym $mod+ctrl+l exec i3lock-fancy 
 
 for_window [class="^.*"] border pixel 0
-
-# Gnome Settings
-exec pkill gsd-xsettings
-exec --no-startup-id XDG_CURRENT_DESKTOP=Gnome;/usr/lib/gnome-settings-daemon/gsd-xsettings
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-keyboard
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-mouse
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-media-keys
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-sound
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-backlight-helper
