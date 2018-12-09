@@ -78,6 +78,7 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f exec Thunar
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -159,12 +160,35 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 
+set $default_gaps_inner 5
+set $default_gaps_outer 0
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+
+workspace $ws1 gaps inner 0
+workspace $ws1 gaps outer 0
+workspace $ws9 gaps inner 0
+workspace $ws9 gaps outer 0
+workspace $ws10 gaps inner 0
+workspace $ws10 gaps outer 0
+
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/Wallpapers/wallhaven-708677.png
+
+exec --no-startup-id compton -b
+
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id nm-applet
 
 bindsym $mod+ctrl+l exec i3lock-fancy 
 
-exec /usr/lib/gnome-settings-daemon/gsd-xsettings
+for_window [class="^.*"] border pixel 0
 
-for_window [class="^.*"] border pixel 1
+# Gnome Settings
+exec pkill gsd-xsettings
+exec --no-startup-id XDG_CURRENT_DESKTOP=Gnome;/usr/lib/gnome-settings-daemon/gsd-xsettings
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-keyboard
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-mouse
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-media-keys
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-sound
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-backlight-helper
