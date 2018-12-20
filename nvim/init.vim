@@ -16,11 +16,13 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'ciaranm/securemodelines'
 Plug 'vim-scripts/localvimrc'
 Plug 'justinmk/vim-sneak'
+Plug 'scrooloose/nerdtree'
 
 " GUI enhancements
 Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Fuzzy finder
 Plug 'airblade/vim-rooter'
@@ -132,6 +134,7 @@ let g:latex_fold_envs = 0
 let g:latex_fold_sections = []
 
 " Open hotkeys
+map <C-n> :NERDTreeToggle<CR>
 map <C-p> :Files<CR>
 nmap <leader>; :Buffers<CR>
 
@@ -179,9 +182,6 @@ let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
 let g:go_bin_path = expand("~/dev/go/bin")
 
-" Don't gofmt Biscuit (yet)
-autocmd BufRead,BufNewFile /home/jon/dev/others/biscuit/** let [g:go_fmt_command, g:go_fmt_autosave]=["", 0]
-
 " =============================================================================
 " # Editor settings
 " =============================================================================
@@ -219,9 +219,9 @@ set wildmode=list:longest
 set wildignore=.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor
 
 " Use wide tabs
-set shiftwidth=8
-set softtabstop=8
-set tabstop=8
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 set noexpandtab
 
 " Get syntax
